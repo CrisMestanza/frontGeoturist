@@ -1,0 +1,2230 @@
+﻿.overlay360 {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100dvh;
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(34, 197, 94, 0.16),
+      transparent 32%
+    ),
+    linear-gradient(135deg, #020607 0%, #07110c 45%, #0b0f12 100%);
+  z-index: 9999;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  color: #ecfdf3;
+}
+
+.mainContent {
+  position: relative;
+  height: 100%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.header360 {
+  position: absolute;
+  inset: 0 0 auto 0;
+  padding: 24px 30px 90px;
+  background: linear-gradient(
+    180deg,
+    rgba(2, 6, 7, 0.86),
+    rgba(2, 6, 7, 0.44),
+    transparent
+  );
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  z-index: 20;
+  pointer-events: none;
+}
+
+.titleGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.headerActions {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  pointer-events: auto;
+}
+
+.badge360 {
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #bbf7d0;
+  background: rgba(34, 197, 94, 0.16);
+  border: 1px solid rgba(134, 239, 172, 0.24);
+  border-radius: 999px;
+  padding: 7px 12px;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  backdrop-filter: blur(12px);
+}
+
+.imageTitle {
+  margin: 0;
+  color: #f8fff9;
+  font-size: clamp(1.45rem, 3vw, 2.8rem);
+  line-height: 1;
+  letter-spacing: -0.05em;
+  text-shadow: 0 12px 32px rgba(0, 0, 0, 0.46);
+}
+
+.imageSubtitle {
+  margin: 0;
+  max-width: 520px;
+  color: rgba(236, 253, 243, 0.78);
+  font-size: 0.95rem;
+}
+
+.headerStats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 4px;
+}
+
+.projectName {
+  margin: 8px 0 0;
+  color: #22d3ee;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.geoHabitaBranding {
+  position: absolute;
+  top: 90px;
+  left: 24px;
+  z-index: 22;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 14px 18px;
+  border-radius: 20px;
+  background: rgba(2, 6, 7, 0.72);
+  border: 1px solid rgba(134, 239, 172, 0.2);
+  box-shadow: 0 16px 42px rgba(0, 0, 0, 0.32);
+  backdrop-filter: blur(16px);
+}
+
+.logo {
+  height: 55px;
+  /* ⬅ más visible */
+}
+
+.brandLogo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brandLogo img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.brandLogo span {
+  color: #22d3ee;
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.brandStats {
+  display: flex;
+  gap: 16px;
+}
+
+.brandStat {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.statValue {
+  color: #f8fff9;
+  font-size: 1.2rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.statLabel {
+  color: rgba(220, 252, 231, 0.62);
+  font-size: 0.64rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.closeBtn {
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  background: rgba(2, 6, 7, 0.58);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: white;
+  padding: 10px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  backdrop-filter: blur(14px);
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.closeBtn:hover {
+  background: rgba(239, 68, 68, 0.94);
+  border-color: rgba(248, 113, 113, 0.9);
+  transform: translateY(-1px);
+}
+
+.viewerWrapper {
+  flex: 1;
+  position: relative;
+  min-height: 0;
+}
+
+.brandName {
+  font-size: 1.6rem;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
+  font-family: "Inter", "Poppins", system-ui, sans-serif;
+}
+
+.geo {
+  color: var(--theme-text-main);
+  font-weight: 900;
+}
+
+.habita {
+  color: #0ea66b;
+  font-weight: 800;
+  /* margin-left: 2px; */
+}
+
+.loteDrawer {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  bottom: 24px;
+  width: min(360px, calc(100% - 48px));
+  z-index: 24;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 18px;
+  border-radius: 26px;
+  color: #ecfdf3;
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(34, 197, 94, 0.14),
+      transparent 28%
+    ),
+    linear-gradient(180deg, rgba(3, 9, 8, 0.96), rgba(5, 13, 12, 0.94));
+  border: 1px solid rgba(134, 239, 172, 0.18);
+  box-shadow:
+    0 28px 64px rgba(0, 0, 0, 0.42),
+    0 0 34px rgba(34, 197, 94, 0.12);
+  backdrop-filter: blur(18px);
+  overflow: auto;
+}
+
+.loteDrawerHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 14px;
+}
+
+.loteDrawerHeader h4 {
+  margin: 6px 0 8px;
+  font-size: 1.34rem;
+  color: #f8fff9;
+  line-height: 1.05;
+}
+
+.loteDrawerHeader p {
+  margin: 0;
+  color: rgba(220, 252, 231, 0.68);
+  font-size: 0.84rem;
+}
+
+.loteDrawerEyebrow {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  padding: 6px 10px;
+  border-radius: 999px;
+  color: #bbf7d0;
+  background: rgba(34, 197, 94, 0.12);
+  border: 1px solid rgba(134, 239, 172, 0.2);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.loteActionButtons {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 2px;
+}
+
+.actionBtnWhatsApp,
+.actionBtnCall,
+.actionBtnShare {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 10px;
+  padding: 14px;
+  min-height: 92px;
+  border-radius: 16px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.actionBtnWhatsApp {
+  background: linear-gradient(135deg, #25d366, #128c7e);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.actionBtnWhatsApp:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+}
+
+.actionBtnCall {
+  background: linear-gradient(135deg, #34b7f1, #2a9d8f);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.actionBtnCall:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(52, 183, 241, 0.4);
+}
+
+.actionBtnShare {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #ecfdf3;
+}
+
+.actionBtnShare:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.14);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.actionBtnWhatsApp span,
+.actionBtnCall span,
+.actionBtnShare span {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+}
+
+.actionBtnWhatsApp strong,
+.actionBtnCall strong,
+.actionBtnShare strong {
+  font-size: 0.9rem;
+}
+
+.loteDrawerCloseFloating {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #ecfdf3;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+  z-index: 3;
+}
+
+.loteDrawerCloseFloating:hover {
+  transform: translateY(-1px);
+  background: rgba(239, 68, 68, 0.82);
+}
+
+.loteDrawerHero {
+  padding: 16px 18px;
+  border-radius: 22px;
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(34, 211, 238, 0.12),
+      transparent 32%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.05),
+      rgba(255, 255, 255, 0.02)
+    );
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.loteDrawerStatusWrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.loteDrawerHero h5 {
+  margin: 0 0 8px;
+  color: #f8fff9;
+  font-size: 1.45rem;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.loteDrawerHero p {
+  margin: 0;
+  color: rgba(220, 252, 231, 0.7);
+  font-size: 0.84rem;
+}
+
+.loteDrawerPriceBlock small {
+  display: block;
+  color: rgba(220, 252, 231, 0.58);
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 6px;
+}
+
+.loteDrawerPriceBlock strong {
+  color: #f8fff9;
+  font-size: 1.8rem;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.loteDrawerMeta {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.loteMetaCard {
+  min-width: 0;
+  padding: 12px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: grid;
+  grid-template-columns: 16px minmax(0, 1fr);
+  gap: 10px;
+  align-items: start;
+}
+
+.loteMetaCard svg {
+  color: #67e8f9;
+  margin-top: 2px;
+}
+
+.loteMetaCardBody {
+  min-width: 0;
+}
+
+.loteMetaCard span {
+  display: block;
+  color: rgba(220, 252, 231, 0.58);
+  font-size: 0.68rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 6px;
+}
+
+.loteMetaCard strong {
+  display: block;
+  color: #f8fff9;
+  font-size: 0.92rem;
+  line-height: 1.2;
+  white-space: normal;
+  word-break: normal;
+  overflow-wrap: anywhere;
+  text-wrap: pretty;
+}
+
+.loteInsightStrip {
+  position: relative;
+  padding: 16px 18px;
+  border-radius: 20px;
+  background:
+    linear-gradient(135deg, rgba(34, 197, 94, 0.12), rgba(34, 211, 238, 0.08)),
+    rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(134, 239, 172, 0.14);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.viewerFinancingCard {
+  display: grid;
+  gap: 12px;
+  padding: 14px;
+  border-radius: 20px;
+  background:
+    radial-gradient(circle at top right, rgba(34, 197, 94, 0.12), transparent 30%),
+    linear-gradient(145deg, rgba(9, 16, 14, 0.92), rgba(7, 12, 11, 0.96));
+  border: 1px solid rgba(134, 239, 172, 0.16);
+  box-shadow: 0 18px 32px rgba(0, 0, 0, 0.18);
+}
+
+.viewerFinancingHead {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.viewerFinancingKicker {
+  display: inline-block;
+  font-size: 0.62rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #86efac;
+}
+
+.viewerFinancingHead strong {
+  display: block;
+  margin-top: 4px;
+  font-size: 1.2rem;
+  color: #f8fff9;
+}
+
+.viewerFinancingHead p {
+  margin: 4px 0 0;
+  color: rgba(220, 252, 231, 0.7);
+  font-size: 0.78rem;
+}
+
+.viewerFinancingCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  text-decoration: none;
+  background: linear-gradient(135deg, #22c55e, #16a34a 58%, #0f766e);
+  color: #f8fff9;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.viewerFinancingCtaDisabled {
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.viewerFinancingGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.viewerFinancingGrid div {
+  padding: 10px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.viewerFinancingGrid span,
+.viewerFinancingFields span {
+  display: block;
+  font-size: 0.68rem;
+  color: rgba(220, 252, 231, 0.68);
+}
+
+.viewerFinancingGrid strong {
+  display: block;
+  margin-top: 4px;
+  color: #f8fff9;
+  font-size: 0.92rem;
+}
+
+.viewerFinancingFields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.viewerFinancingFields label {
+  display: grid;
+  gap: 6px;
+}
+
+.viewerFinancingFields input {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+  color: #f8fff9;
+  border-radius: 12px;
+  padding: 10px 12px;
+}
+
+.loteInsightCopy small {
+  display: block;
+  color: #86efac;
+  font-size: 0.7rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+}
+
+.loteInsightCopy strong {
+  display: block;
+  color: #f8fff9;
+  font-size: 1rem;
+  margin-bottom: 6px;
+}
+
+.loteInsightCopy p {
+  margin: 0;
+  color: rgba(220, 252, 231, 0.7);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.viewerContainer {
+  width: 100%;
+  height: 100%;
+  contain: layout paint size;
+  background: #020607;
+}
+
+.viewerContainer canvas {
+  display: block;
+}
+
+.lotLabelsLayer {
+  position: absolute;
+  inset: 0;
+  z-index: 16;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.lotLabelsSvg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: visible;
+}
+
+.lotLabel text {
+  fill: rgba(255, 255, 255, 0.96);
+  stroke: rgba(0, 0, 0, 0.18);
+  stroke-width: 1.8px;
+  paint-order: stroke fill;
+  stroke-linejoin: round;
+}
+
+.lotLabelSelected text {
+  fill: #ffffff;
+  stroke: rgba(8, 145, 178, 0.34);
+  stroke-width: 2.1px;
+  paint-order: stroke fill;
+}
+
+.lotLabelTitle {
+  font-weight: 900;
+  letter-spacing: -0.05em;
+}
+
+.lotLabelArea {
+  fill: rgba(255, 255, 255, 0.92);
+  stroke: rgba(0, 0, 0, 0.12);
+  stroke-width: 1.2px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.lotLabelBlock {
+  fill: rgba(255, 255, 255, 0.8);
+  stroke: rgba(0, 0, 0, 0.08);
+  stroke-width: 1px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.viewerHud {
+  position: absolute;
+  inset: auto 24px 52px 24px;
+  z-index: 92;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  gap: 18px;
+  pointer-events: none;
+}
+
+.viewerWatermark {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  opacity: 0.8;
+}
+
+.viewerWatermark img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.34));
+}
+
+.viewerWatermark span {
+  color: rgba(248, 255, 249, 0.9);
+  font-size: 1rem;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  text-shadow: 0 10px 28px rgba(0, 0, 0, 0.34);
+}
+
+.mobileSidebarWatermark {
+  display: none;
+}
+
+.mobileFloatingWatermark {
+  display: none;
+}
+
+.projectSidebarPanel {
+  padding: 14px 16px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.projectSidebarIntro small {
+  display: block;
+  color: #86efac;
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.projectSidebarIntro h4 {
+  margin: 0 0 8px;
+  color: #f8fff9;
+  font-size: 1.05rem;
+  line-height: 1.15;
+}
+
+.projectSidebarIntro p {
+  margin: 0;
+  color: rgba(220, 252, 231, 0.68);
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.projectSidebarGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.projectSidebarCard {
+  min-width: 0;
+  padding: 12px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.projectSidebarCard span {
+  display: block;
+  color: rgba(220, 252, 231, 0.58);
+  font-size: 0.66rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 6px;
+}
+
+.projectSidebarCard strong {
+  display: block;
+  color: #f8fff9;
+  font-size: 0.9rem;
+  line-height: 1.28;
+  text-wrap: pretty;
+}
+
+.hudCluster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.hudPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  color: #ecfdf5;
+  background: rgba(2, 6, 7, 0.62);
+  border: 1px solid rgba(134, 239, 172, 0.24);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.24);
+  backdrop-filter: blur(14px);
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.orientationCard {
+  min-width: 150px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 22px;
+  color: #ecfdf5;
+  background: rgba(2, 6, 7, 0.68);
+  border: 1px solid rgba(134, 239, 172, 0.22);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(14px);
+}
+
+.orientationDial {
+  position: relative;
+  width: 58px;
+  height: 58px;
+  flex: 0 0 58px;
+  border-radius: 50%;
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(240, 253, 244, 0.12),
+      rgba(2, 6, 7, 0.7) 62%
+    ),
+    conic-gradient(
+      from 180deg,
+      rgba(34, 197, 94, 0.22),
+      rgba(20, 184, 166, 0.1),
+      rgba(34, 197, 94, 0.22)
+    );
+  border: 1px solid rgba(187, 247, 208, 0.26);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.orientationNeedle {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 2px;
+  height: 22px;
+  background: linear-gradient(180deg, #ecfeff, #22d3ee 62%, transparent 100%);
+  transform-origin: center bottom;
+  border-radius: 999px;
+  box-shadow: 0 0 10px rgba(34, 211, 238, 0.48);
+}
+
+.orientationCenter {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  color: #f0fdf4;
+}
+
+.orientationMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.orientationMeta strong {
+  color: #f8fff9;
+  font-size: 1.02rem;
+}
+
+.orientationMeta span {
+  color: rgba(220, 252, 231, 0.64);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.projectOverlayLayerPublic {
+  position: absolute;
+  inset: 0;
+  z-index: 12;
+  pointer-events: none;
+}
+
+.projectOverlayCardPublic {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: min(62vw, 760px);
+  max-width: calc(100% - 36px);
+  transform-origin: top left;
+}
+
+.projectOverlaySvgPublic {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  filter: drop-shadow(0 16px 35px rgba(0, 0, 0, 0.32));
+}
+
+.overlayProjectGlowPublic {
+  fill: rgba(21, 128, 61, 0.18);
+  stroke: rgba(34, 197, 94, 0.28);
+  stroke-width: 36;
+  stroke-linejoin: round;
+}
+
+.overlayProjectPathPublic {
+  fill: rgba(14, 116, 44, 0.26);
+  stroke: #14532d;
+  stroke-width: 12;
+  stroke-linejoin: round;
+}
+
+.overlayLotePathPublic {
+  stroke: rgba(255, 255, 255, 0.86);
+  stroke-width: 3;
+  stroke-linejoin: round;
+}
+
+.loading360 {
+  position: absolute;
+  inset: 0;
+  z-index: 15;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #dcfce7;
+  background: rgba(2, 6, 7, 0.56);
+  backdrop-filter: blur(6px);
+  font-weight: 700;
+}
+
+.hotspotHint {
+  position: absolute;
+  left: 28px;
+  bottom: 28px;
+  z-index: 20;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  color: #dcfce7;
+  background: rgba(2, 6, 7, 0.62);
+  border: 1px solid rgba(134, 239, 172, 0.24);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(14px);
+  font-size: 0.9rem;
+  overflow: hidden;
+}
+
+.hotspotHint::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(236, 254, 255, 0.2) 48%,
+    transparent 82%
+  );
+  transform: translateX(-130%);
+  animation: hintSweep 3.6s ease-in-out infinite;
+}
+
+.travelOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  overflow: hidden;
+  background: radial-gradient(
+    circle at center,
+    rgba(236, 253, 245, 0.1),
+    rgba(2, 6, 7, 0.42) 58%,
+    rgba(2, 6, 7, 0.7)
+  );
+  animation: travelFade 0.9s ease forwards;
+}
+
+.travelOverlay::before,
+.travelOverlay::after {
+  content: "";
+  position: absolute;
+  inset: -18%;
+  border-radius: 50%;
+  border: 2px solid rgba(187, 247, 208, 0.42);
+  transform: scale(0.22);
+  animation: travelRing 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.travelOverlay::after {
+  animation-delay: 0.1s;
+  border-color: rgba(20, 184, 166, 0.36);
+}
+
+.travelTunnel {
+  position: absolute;
+  width: min(62vw, 680px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background:
+    radial-gradient(
+      circle,
+      transparent 0 22%,
+      rgba(236, 253, 245, 0.28) 23%,
+      transparent 24% 35%,
+      rgba(34, 197, 94, 0.18) 36%,
+      transparent 38% 100%
+    ),
+    conic-gradient(
+      from 0deg,
+      transparent,
+      rgba(187, 247, 208, 0.36),
+      transparent,
+      rgba(20, 184, 166, 0.28),
+      transparent
+    );
+  filter: blur(0.2px);
+  animation: travelTunnel 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.travelTarget {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  max-width: min(70vw, 460px);
+  padding: 13px 18px;
+  border: 1px solid rgba(187, 247, 208, 0.54);
+  border-radius: 8px;
+  color: #ecfdf5;
+  background: rgba(4, 17, 11, 0.78);
+  box-shadow:
+    0 18px 42px rgba(0, 0, 0, 0.34),
+    0 0 34px rgba(34, 197, 94, 0.22);
+  font-weight: 900;
+  text-align: center;
+  backdrop-filter: blur(16px);
+  animation: travelLabel 0.7s ease forwards;
+}
+
+.navBtn {
+  position: absolute;
+  top: 50%;
+  z-index: 20;
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  background: rgba(2, 6, 7, 0.58);
+  color: white;
+  cursor: pointer;
+  transform: translateY(-50%);
+  backdrop-filter: blur(12px);
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.navBtn:hover {
+  background: rgba(34, 197, 94, 0.78);
+  transform: translateY(-50%) scale(1.06);
+}
+
+.prev {
+  left: 24px;
+}
+.next {
+  right: 24px;
+}
+
+.loteInfoPanel {
+  margin: 0 16px 16px;
+  border: 1px solid rgba(134, 239, 172, 0.28);
+  border-radius: 8px;
+  background:
+    linear-gradient(180deg, rgba(9, 17, 14, 0.94), rgba(3, 9, 8, 0.92)),
+    rgba(4, 17, 11, 0.86);
+  box-shadow:
+    0 22px 58px rgba(0, 0, 0, 0.46),
+    0 0 34px rgba(34, 197, 94, 0.12);
+  color: #ecfdf3;
+  padding: 15px;
+  backdrop-filter: blur(18px);
+  min-width: 0;
+}
+
+.loteInfoHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.loteInfoHeader h4 {
+  margin: 7px 0 0;
+  color: #f8fff9;
+  font-size: 1.05rem;
+  line-height: 1.15;
+}
+
+.loteInfoBadge {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  border-radius: 999px;
+  padding: 5px 9px;
+  color: #052016;
+  background: #86efac;
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.loteInfoClose {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #ecfdf3;
+  cursor: pointer;
+}
+
+.loteInfoClose:hover {
+  background: rgba(239, 68, 68, 0.82);
+}
+
+.loteInfoState {
+  border: 1px dashed rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  padding: 14px;
+  color: rgba(236, 253, 243, 0.72);
+  font-size: 0.88rem;
+}
+
+.loteInfoStatusRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.loteStatusChip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  min-width: 98px;
+  padding: 7px 10px;
+  border-radius: 999px;
+  color: #031007;
+  background: var(--lot-status-color, #22c55e);
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow: 0 10px 22px
+    color-mix(in srgb, var(--lot-status-color, #22c55e) 35%, transparent);
+}
+
+.loteInfoAssist {
+  color: rgba(220, 252, 231, 0.56);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.loteInfoPrice {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 11px 12px;
+  border-radius: 8px;
+  background: rgba(34, 197, 94, 0.13);
+  border: 1px solid rgba(134, 239, 172, 0.18);
+  color: #bbf7d0;
+}
+
+.loteInfoPrice strong {
+  color: #f8fff9;
+  font-size: 1.05rem;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.loteInfoPrice span {
+  margin-left: auto;
+  color: rgba(220, 252, 231, 0.62);
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.loteInfoGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.loteInfoGrid div {
+  min-width: 0;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.045);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.loteInfoGrid svg {
+  color: #86efac;
+}
+
+.loteInfoGrid strong {
+  color: #f8fff9;
+  font-size: 0.86rem;
+}
+
+.loteInfoGrid span {
+  color: rgba(220, 252, 231, 0.62);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.sideGallery {
+  position: relative;
+  z-index: 25;
+  height: 100dvh;
+  min-height: 0;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  min-width: 0;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(12, 18, 16, 0.98), rgba(4, 9, 10, 0.98)),
+    radial-gradient(circle at top, rgba(34, 197, 94, 0.12), transparent 36%);
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: -24px 0 60px rgba(0, 0, 0, 0.34);
+}
+
+.sideGalleryBody {
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.loteDrawerContent {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-height: 0;
+  overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  position: relative;
+}
+
+:global(.psv-marker.gh-portal-lot-marker) {
+  opacity: 1;
+}
+
+:global(.psv-marker.gh-portal-lot-marker.gh-lot-selected) {
+  z-index: 12;
+}
+
+:global(.psv-marker.gh-portal-lot-marker svg),
+:global(.psv-marker.gh-portal-lot-marker path),
+:global(.psv-marker.gh-portal-lot-marker polygon) {
+  transition: opacity 0.18s ease;
+}
+
+:global(.psv-marker.gh-portal-hotspot-marker) {
+  opacity: 1;
+}
+
+:global(.psv-tooltip) {
+  padding: 10px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(134, 239, 172, 0.24);
+  background: rgba(3, 9, 8, 0.92);
+  color: #ecfdf5;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.36);
+  backdrop-filter: blur(16px);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  z-index: 140 !important;
+}
+
+:global(.psv-tooltip.gh-lot-tooltip) {
+  padding: 0;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+:global(.psv-tooltip.gh-lot-tooltip .psv-tooltip-content) {
+  padding: 0;
+}
+
+:global(.gh-lot-tooltip-card) {
+  min-width: 180px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+:global(.gh-lot-tooltip-name) {
+  color: #f8fff9;
+  font-size: 0.88rem;
+  font-weight: 900;
+  line-height: 1.18;
+}
+
+:global(.gh-lot-tooltip-meta) {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+:global(.gh-lot-tooltip-meta span) {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.28rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+:global(.psv-tooltip.gh-lot-tooltip-available) {
+  border-color: rgba(126, 217, 87, 0.5);
+  background: linear-gradient(180deg, rgba(20, 50, 16, 0.96), rgba(10, 30, 10, 0.94));
+}
+
+:global(.psv-tooltip.gh-lot-tooltip-available .gh-lot-tooltip-meta span) {
+  color: #dcfce7;
+  background: rgba(126, 217, 87, 0.18);
+}
+
+:global(.psv-tooltip.gh-lot-tooltip-reserved) {
+  border-color: rgba(245, 158, 11, 0.5);
+  background: linear-gradient(180deg, rgba(67, 33, 4, 0.96), rgba(37, 19, 4, 0.94));
+}
+
+:global(.psv-tooltip.gh-lot-tooltip-reserved .gh-lot-tooltip-meta span) {
+  color: #fef3c7;
+  background: rgba(245, 158, 11, 0.18);
+}
+
+:global(.psv-tooltip.gh-lot-tooltip-sold) {
+  border-color: rgba(239, 68, 68, 0.5);
+  background: linear-gradient(180deg, rgba(64, 15, 15, 0.96), rgba(34, 12, 12, 0.94));
+}
+
+:global(.psv-tooltip.gh-lot-tooltip-sold .gh-lot-tooltip-meta span) {
+  color: #fee2e2;
+  background: rgba(239, 68, 68, 0.18);
+}
+
+.experiencePanel {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 16px 18px 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.035),
+      rgba(255, 255, 255, 0.015)
+    ),
+    radial-gradient(
+      circle at top right,
+      rgba(34, 197, 94, 0.12),
+      transparent 40%
+    );
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.experienceHeader {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #bbf7d0;
+  font-size: 0.8rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.experienceStats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.experienceStat {
+  min-width: 0;
+  padding: 12px 10px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.experienceStat strong {
+  display: block;
+  color: #f8fff9;
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+
+.experienceStat span {
+  color: rgba(220, 252, 231, 0.62);
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.lotLegend {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.lotLegendItem {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 10px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.lotLegendSwatch {
+  width: 24px;
+  height: 12px;
+  flex: 0 0 24px;
+  border-radius: 999px;
+  background: var(--legend-color, #22c55e);
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  outline: 1px solid rgba(2, 6, 7, 0.36);
+}
+
+.lotLegendItem small {
+  color: rgba(220, 252, 231, 0.72);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.minimapCard {
+  padding: 14px;
+  border-radius: 20px;
+  background:
+    radial-gradient(circle at top, rgba(34, 197, 94, 0.12), transparent 36%),
+    linear-gradient(180deg, rgba(3, 9, 8, 0.96), rgba(6, 16, 14, 0.94));
+  border: 1px solid rgba(134, 239, 172, 0.16);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.24);
+}
+
+.minimapHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  color: #dcfce7;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.minimapCanvas {
+  aspect-ratio: 1;
+  width: 100%;
+  border-radius: 18px;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(240, 253, 244, 0.05),
+      transparent 58%
+    ),
+    linear-gradient(180deg, rgba(2, 6, 7, 0.82), rgba(9, 17, 14, 0.96));
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.minimapSvg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.minimapLotGroup {
+  cursor: pointer;
+}
+
+.minimapProjectPolygon {
+  fill: rgba(20, 83, 45, 0.22);
+  stroke: rgba(34, 197, 94, 0.3);
+  stroke-width: 10;
+  stroke-linejoin: round;
+}
+
+.minimapLotShadow {
+  fill: var(--lot-shadow-color, #166534);
+  fill-opacity: 0.52;
+  stroke: rgba(2, 6, 7, 0.34);
+  stroke-width: 1.2;
+  stroke-linejoin: round;
+}
+
+.minimapLot {
+  fill: var(--lot-color, #22c55e);
+  fill-opacity: 0.72;
+  stroke: rgba(255, 255, 255, 0.78);
+  stroke-width: 2.4;
+  stroke-linejoin: round;
+  transition:
+    fill-opacity 0.18s ease,
+    transform 0.18s ease;
+}
+
+.minimapLotSelected {
+  fill: #22d3ee;
+  fill-opacity: 0.9;
+  stroke: #ecfeff;
+  stroke-width: 3.8;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 0 10px rgba(34, 211, 238, 0.5));
+}
+
+.minimapLotGroup:hover .minimapLot {
+  fill-opacity: 0.88;
+}
+
+.minimapLotGroup:hover .minimapLotShadow {
+  fill-opacity: 0.7;
+}
+
+.minimapLotLabel {
+  fill: rgba(248, 255, 249, 0.94);
+  font-size: 10px;
+  font-weight: 900;
+  text-anchor: middle;
+  dominant-baseline: middle;
+  letter-spacing: 0.08em;
+  pointer-events: none;
+}
+
+.minimapCamera {
+  transform-origin: center;
+}
+
+.minimapCameraDot {
+  fill: #f8fff9;
+  stroke: rgba(34, 197, 94, 0.48);
+  stroke-width: 3;
+}
+
+.minimapCameraArrow {
+  fill: #22d3ee;
+  stroke: rgba(236, 254, 255, 0.86);
+  stroke-width: 1.5;
+}
+
+.galleryHeader {
+  padding: 24px 22px 18px;
+  color: white;
+  font-weight: 800;
+  font-size: 0.86rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.galleryHeader div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.galleryHeader small {
+  color: rgba(236, 253, 243, 0.5);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.greenText {
+  color: #86efac;
+}
+
+.galleryList {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  min-height: 0;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+}
+
+.galleryItem {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.035);
+  cursor: pointer;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  opacity: 0.72;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.galleryItem:hover,
+.activeItem {
+  opacity: 1;
+  transform: translateY(-1px);
+  border-color: rgba(134, 239, 172, 0.42);
+  background: rgba(34, 197, 94, 0.09);
+}
+
+.thumbWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 13px;
+  overflow: hidden;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.04),
+      rgba(134, 239, 172, 0.12),
+      rgba(255, 255, 255, 0.04)
+    ),
+    #08100c;
+  background-size: 220% 100%;
+  animation: thumbLoading 1.4s ease-in-out infinite;
+}
+
+.thumbWrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+  background: #08100c;
+}
+
+.thumbWrapper:has(img) {
+  animation: none;
+  background: #08100c;
+}
+
+.galleryItem:hover .thumbWrapper img {
+  transform: scale(1.05);
+}
+
+.activeBadge {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: #22c55e;
+  color: #031007;
+  font-size: 0.68rem;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-weight: 900;
+}
+
+.thumbName {
+  color: #dcfce7;
+  font-size: 0.9rem;
+  font-weight: 700;
+  padding: 0 2px 2px;
+}
+
+.hotspotsPanel {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.02);
+  max-height: 36vh;
+  overflow: auto;
+}
+
+.hotspotsHeader {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #bbf7d0;
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.emptyHotspots {
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  color: rgba(236, 253, 243, 0.58);
+  padding: 14px;
+  font-size: 0.86rem;
+  text-align: center;
+}
+
+.hotspotsList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.hotspotItem {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 46px minmax(0, 1fr);
+  gap: 12px;
+  align-items: center;
+  border: 1px solid rgba(134, 239, 172, 0.28);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(20, 184, 166, 0.08)),
+    rgba(4, 17, 11, 0.74);
+  color: #ecfdf3;
+  padding: 12px;
+  cursor: pointer;
+  text-align: left;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.hotspotItem:hover {
+  border-color: rgba(187, 247, 208, 0.68);
+  background:
+    linear-gradient(135deg, rgba(34, 197, 94, 0.3), rgba(20, 184, 166, 0.14)),
+    rgba(4, 17, 11, 0.9);
+  box-shadow:
+    0 14px 28px rgba(0, 0, 0, 0.24),
+    0 0 26px rgba(34, 197, 94, 0.16);
+  transform: translateX(3px);
+}
+
+.hotspotIconWrap {
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  color: #052016;
+  background: linear-gradient(135deg, #ecfdf5, #86efac 55%, #10b981);
+  box-shadow:
+    0 0 0 5px rgba(134, 239, 172, 0.1),
+    0 10px 20px rgba(0, 0, 0, 0.24);
+}
+
+.hotspotItem strong,
+.hotspotItem span {
+  display: block;
+}
+
+.hotspotItem strong {
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+  color: #f8fff9;
+}
+
+.hotspotItem span {
+  color: rgba(220, 252, 231, 0.72);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.galleryList::-webkit-scrollbar,
+.hotspotsPanel::-webkit-scrollbar,
+.sideGalleryBody::-webkit-scrollbar,
+.loteDrawerContent::-webkit-scrollbar,
+.loteDrawer::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+.galleryList::-webkit-scrollbar-thumb,
+.hotspotsPanel::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+}
+
+@keyframes thumbLoading {
+  0% {
+    background-position: 110% 0;
+  }
+
+  100% {
+    background-position: -110% 0;
+  }
+}
+
+@keyframes hintSweep {
+  0%,
+  74% {
+    transform: translateX(-130%);
+  }
+
+  100% {
+    transform: translateX(130%);
+  }
+}
+
+@keyframes travelFade {
+  0% {
+    opacity: 0;
+  }
+
+  18%,
+  78% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.92;
+  }
+}
+
+@keyframes travelRing {
+  0% {
+    opacity: 0;
+    transform: scale(0.18);
+  }
+
+  35% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.12);
+  }
+}
+
+@keyframes travelTunnel {
+  0% {
+    opacity: 0;
+    transform: scale(0.18) rotate(0deg);
+  }
+
+  24% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.35) rotate(70deg);
+  }
+}
+
+@keyframes travelLabel {
+  0% {
+    opacity: 0;
+    transform: translateY(12px) scale(0.92);
+  }
+
+  22%,
+  82% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-8px) scale(1.04);
+  }
+}
+
+@media (max-width: 920px) {
+  .overlay360 {
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(0, 1fr);
+  }
+
+  .header360 {
+    padding: 18px 18px 80px;
+  }
+
+  .closeBtn span,
+  .imageSubtitle {
+    display: none;
+  }
+
+  .imageTitle {
+    font-size: 1.35rem;
+  }
+
+  .sideGallery {
+    height: 250px;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto minmax(0, 1fr);
+    border-left: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .galleryHeader {
+    grid-column: 1 / -1;
+    padding: 14px 16px;
+  }
+
+  .galleryList {
+    grid-row: 3 / 5;
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+    min-width: 0;
+    padding: 12px;
+  }
+
+  .galleryItem {
+    min-width: 160px;
+  }
+
+  .hotspotsPanel {
+    grid-column: 2;
+    grid-row: 4;
+    max-height: none;
+    border-top: none;
+    border-left: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .hotspotHint {
+    left: 14px;
+    bottom: 14px;
+  }
+
+  .viewerHud {
+    inset: auto 14px 52px 14px;
+  }
+
+  .loteDrawer {
+    top: 16px;
+    right: 16px;
+    bottom: 16px;
+    width: min(320px, calc(100% - 32px));
+  }
+
+  .experiencePanel {
+    grid-column: 1 / -1;
+    padding: 14px 16px;
+  }
+
+  .projectOverlayCardPublic {
+    width: calc(100% - 22px);
+    max-width: calc(100% - 22px);
+  }
+
+  .prev {
+    left: 14px;
+  }
+  .next {
+    right: 14px;
+  }
+}
+
+@media (max-width: 620px) {
+  .overlay360 {
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(0, 1fr);
+    height: 100dvh;
+    overflow: visible;
+  }
+
+  .mainContent {
+    position: relative;
+  }
+
+  .header360 {
+    padding: 16px 12px 84px;
+  }
+
+  .headerActions {
+    gap: 8px;
+  }
+
+  .headerStats {
+    gap: 12px;
+  }
+
+  .brandStat {
+    gap: 2px;
+  }
+
+  .sideGallery {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: auto;
+    bottom: 0;
+    z-index: 28;
+    height: auto;
+    min-height: 0;
+    display: grid;
+    grid-template-rows: auto auto minmax(0, 1fr);
+    overflow: hidden;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-left: none;
+    border-radius: 24px 24px 0 0;
+    box-shadow: 0 -28px 62px rgba(0, 0, 0, 0.38);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .viewerHud {
+    display: none;
+  }
+
+  .mobileFloatingWatermark {
+    position: absolute;
+    left: 16px;
+    z-index: 40;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    pointer-events: none;
+  }
+
+  .mobileFloatingWatermark img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.34));
+  }
+
+  .mobileFloatingWatermark span {
+    color: rgba(248, 255, 249, 0.94);
+    font-size: 0.92rem;
+    font-weight: 900;
+    line-height: 1;
+    text-shadow: 0 8px 20px rgba(0, 0, 0, 0.32);
+  }
+
+  .mobileSheet {
+    transition: none;
+  }
+
+  .mobileExpanded {
+    /* altura controlada por JS */
+  }
+
+  .mobileCollapsed {
+    height: 86px;
+    overflow: hidden;
+  }
+
+  .mobileHiddenContent {
+    display: none;
+  }
+
+  .mobileTopHeader {
+    position: sticky;
+    top: 0;
+    z-index: 3;
+    display: grid;
+    grid-template-columns: 1fr 38px;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 12px;
+    background: rgba(8, 15, 12, 0.94);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    touch-action: none;
+  }
+
+  .mobileHeaderTitle {
+    margin: 0;
+    color: #f8fff9;
+    font-size: 0.92rem;
+    font-weight: 900;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .mobileHeaderClose {
+    width: 34px;
+    height: 34px;
+    border: 0;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.08);
+    color: #f8fff9;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+  }
+
+  .mobileDragHandle {
+    position: absolute;
+    left: 50%;
+    bottom: 4px;
+    transform: translateX(-50%);
+    width: 42px;
+    height: 4px;
+    border-radius: 999px;
+    background: rgba(248, 255, 249, 0.3);
+  }
+
+  .hotspotsPanel {
+    border-left: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    max-height: none;
+    overflow: auto;
+  }
+
+  .loteDrawer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: auto;
+    bottom: 0;
+    width: auto;
+    max-height: none;
+    padding: 0;
+    border-radius: 24px 24px 0 0;
+    z-index: 32;
+  }
+
+  .loteDrawerContent {
+    padding: 18px;
+  }
+
+  .loteInfoGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .viewerFinancingGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .viewerFinancingFields {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .loteDrawerMeta {
+    grid-template-columns: 1fr;
+  }
+
+  .viewerHud {
+    inset: auto 12px calc(46dvh + 56px) 12px;
+  }
+
+  .galleryList {
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 12px;
+  }
+
+  .galleryHeader {
+    padding: 12px 14px;
+  }
+
+  .sideGalleryBody {
+    overflow: auto;
+    overscroll-behavior: contain;
+  }
+
+  .projectSidebarGrid {
+    grid-template-columns: 1fr;
+  }
+}
