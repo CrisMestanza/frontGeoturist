@@ -123,7 +123,7 @@ const ProyectoSidebar = ({
     try {
       const res = await fetch(
         withApiBase(
-          `http://127.0.0.1:8000/api/get_imagen_360_casa/${projectId}/`,
+          `http://51.81.85.35:8002/api/get_imagen_360_casa/${projectId}/`,
         ),
       );
       const data = res.ok ? await res.json() : [];
@@ -236,7 +236,7 @@ const ProyectoSidebar = ({
       if (!projectId) return;
       setReviewsStatus("loading");
       try {
-        const res = await fetch(withApiBase(`http://127.0.0.1:8000/api/proyecto/${projectId}/reviews/`));
+        const res = await fetch(withApiBase(`http://51.81.85.35:8002/api/proyecto/${projectId}/reviews/`));
         if (!res.ok) {
           setReviews([]);
           setReviewsStatus("error");
@@ -281,7 +281,7 @@ const ProyectoSidebar = ({
     setReviewSubmitting(true);
     try {
       const res = await authFetch(
-        withApiBase(`http://127.0.0.1:8000/api/proyecto/${projectId}/reviews/create/`),
+        withApiBase(`http://51.81.85.35:8002/api/proyecto/${projectId}/reviews/create/`),
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -391,7 +391,7 @@ const ProyectoSidebar = ({
   const registrarClickContacto = async (redSocial) => {
     try {
       await fetch(
-        withApiBase("http://127.0.0.1:8000/api/registerClickContactos/"),
+        withApiBase("http://51.81.85.35:8002/api/registerClickContactos/"),
         {
           method: "POST",
           headers: {
@@ -421,7 +421,7 @@ const ProyectoSidebar = ({
         const image = new Image();
         image.decoding = "async";
         image.src = withApiBase(
-          `http://127.0.0.1:8000${img.imagenproyecto}`,
+          `http://51.81.85.35:8002${img.imagenproyecto}`,
         );
       });
     };
@@ -860,7 +860,7 @@ const ProyectoSidebar = ({
                     <img
                       key={currentImg}
                       src={withApiBase(
-                        `http://127.0.0.1:8000${validImages[currentImg].imagenproyecto}`,
+                        `http://51.81.85.35:8002${validImages[currentImg].imagenproyecto}`,
                       )}
                       alt="Propiedad"
                       className={styles.mobileSingleImage}
@@ -878,7 +878,7 @@ const ProyectoSidebar = ({
                     >
                       <img
                         src={withApiBase(
-                          `http://127.0.0.1:8000${validImages[0].imagenproyecto}`,
+                          `http://51.81.85.35:8002${validImages[0].imagenproyecto}`,
                         )}
                         alt="Imagen 1"
                         className={styles.mobileDualImage}
@@ -891,7 +891,7 @@ const ProyectoSidebar = ({
                     >
                       <img
                         src={withApiBase(
-                          `http://127.0.0.1:8000${validImages[1].imagenproyecto}`,
+                          `http://51.81.85.35:8002${validImages[1].imagenproyecto}`,
                         )}
                         alt="Imagen 2"
                         className={styles.mobileDualImage}
@@ -909,7 +909,7 @@ const ProyectoSidebar = ({
                     >
                       <img
                         src={withApiBase(
-                          `http://127.0.0.1:8000${validImages[prevImgIndex].imagenproyecto}`,
+                          `http://51.81.85.35:8002${validImages[prevImgIndex].imagenproyecto}`,
                         )}
                         alt="Anterior"
                         className={styles.mobileSideImage}
@@ -918,7 +918,7 @@ const ProyectoSidebar = ({
                     <img
                       key={currentImg}
                       src={withApiBase(
-                        `http://127.0.0.1:8000${validImages[currentImg].imagenproyecto}`,
+                        `http://51.81.85.35:8002${validImages[currentImg].imagenproyecto}`,
                       )}
                       alt="Propiedad"
                       className={styles.mobileMainImage}
@@ -931,7 +931,7 @@ const ProyectoSidebar = ({
                     >
                       <img
                         src={withApiBase(
-                          `http://127.0.0.1:8000${validImages[nextImgIndex].imagenproyecto}`,
+                          `http://51.81.85.35:8002${validImages[nextImgIndex].imagenproyecto}`,
                         )}
                         alt="Siguiente"
                         className={styles.mobileSideImage}
@@ -958,7 +958,7 @@ const ProyectoSidebar = ({
                 <img
                   key={currentImg}
                   src={withApiBase(
-                    `http://127.0.0.1:8000${validImages[currentImg].imagenproyecto}`,
+                    `http://51.81.85.35:8002${validImages[currentImg].imagenproyecto}`,
                   )}
                   alt="Propiedad"
                   className={styles.mainImage}
@@ -1413,7 +1413,7 @@ const ProyectoSidebar = ({
             <img
               ref={fullscreenPanZoom.imageRef}
               src={withApiBase(
-                `http://127.0.0.1:8000${validImages[fullscreenImgIndex].imagenproyecto}`,
+                `http://51.81.85.35:8002${validImages[fullscreenImgIndex].imagenproyecto}`,
               )}
               className={styles.fullscreenImg}
               alt="Zoom"

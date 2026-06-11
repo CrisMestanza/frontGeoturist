@@ -35,7 +35,7 @@ export default function ChatBotPanel({ onBotResponse }) {
     setBotTyping(true); // 👈 Mostrar que el bot escribe
 
     try {
-      const res = await fetch(withApiBase("http://127.0.0.1:8000/api/chatBot/"), {
+      const res = await fetch(withApiBase("http://51.81.85.35:8002/api/chatBot/"), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ mensaje: input }),

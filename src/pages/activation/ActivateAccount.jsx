@@ -23,7 +23,7 @@ export default function ActivateAccount() {
     const run = async () => {
       try {
         const res = await fetch(
-          withApiBase("http://127.0.0.1:8000/api/activation/confirm/"),
+          withApiBase("http://51.81.85.35:8002/api/activation/confirm/"),
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -61,7 +61,7 @@ export default function ActivateAccount() {
               setResendLoading(true);
               try {
                 const res = await fetch(
-                  withApiBase("http://127.0.0.1:8000/api/activation/resend/"),
+                  withApiBase("http://51.81.85.35:8002/api/activation/resend/"),
                   {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },

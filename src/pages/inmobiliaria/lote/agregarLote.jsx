@@ -285,7 +285,7 @@ export default function LoteModal({ onClose, idproyecto }) {
   // const fetchProyecto = useCallback(async () => {
   //   try {
   //     const resProyecto = await fetch(
-  //       http://127.0.0.1:8000/api/listPuntosProyecto/${idproyecto}
+  //       http://51.81.85.35:8002/api/listPuntosProyecto/${idproyecto}
   //     );
   //     const puntosProyecto = await resProyecto.json();
 
@@ -305,14 +305,14 @@ export default function LoteModal({ onClose, idproyecto }) {
 
   //     // cargar lotes
   //     const resLotes = await fetch(
-  //       http://127.0.0.1:8000/api/getLoteProyecto/${idproyecto}
+  //       http://51.81.85.35:8002/api/getLoteProyecto/${idproyecto}
   //     );
   //     const lotes = await resLotes.json();
 
   //     const lotesData = [];
   //     for (const lote of lotes) {
   //       const resPuntos = await fetch(
-  //         http://127.0.0.1:8000/api/listPuntos/${lote.idlote}
+  //         http://51.81.85.35:8002/api/listPuntos/${lote.idlote}
   //       );
   //       const puntos = await resPuntos.json();
   //       if (!puntos.length) continue;
@@ -354,7 +354,7 @@ export default function LoteModal({ onClose, idproyecto }) {
     try {
       // 🔹 Polígono del proyecto (siempre debe cargarse, incluso sin lotes)
       const resPuntosProyecto = await authFetch(
-        withApiBase(`http://127.0.0.1:8000/api/listPuntosProyecto/${idproyecto}`),
+        withApiBase(`http://51.81.85.35:8002/api/listPuntosProyecto/${idproyecto}`),
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -379,7 +379,7 @@ export default function LoteModal({ onClose, idproyecto }) {
 
       // 🔹 Lotes ya registrados (puede venir vacío en proyecto nuevo)
       const resProyecto = await authFetch(
-        withApiBase(`http://127.0.0.1:8000/api/listPuntosLoteProyecto/${idproyecto}/`),
+        withApiBase(`http://51.81.85.35:8002/api/listPuntosLoteProyecto/${idproyecto}/`),
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -426,7 +426,7 @@ export default function LoteModal({ onClose, idproyecto }) {
     const fetchTipos = async () => {
       try {
         const res = await authFetch(
-          withApiBase(`http://127.0.0.1:8000/api/listTipoInmobiliaria/`),
+          withApiBase(`http://51.81.85.35:8002/api/listTipoInmobiliaria/`),
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -594,7 +594,7 @@ export default function LoteModal({ onClose, idproyecto }) {
     });
     console.log("Enviando formulario:", form);
     try {
-      const res = await authFetch(withApiBase("http://127.0.0.1:8000/api/registerLote/"), {
+      const res = await authFetch(withApiBase("http://51.81.85.35:8002/api/registerLote/"), {
         method: "POST",
         body: formData,
         headers: { Authorization: `Bearer ${token}` },

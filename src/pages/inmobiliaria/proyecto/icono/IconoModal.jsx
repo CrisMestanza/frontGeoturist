@@ -113,7 +113,7 @@ export default function IconoModal({ onClose, idproyecto }) {
       try {
         setIconosLoading(true);
         const resProyecto = await authFetch(
-          withApiBase(`http://127.0.0.1:8000/api/listPuntosProyecto/${idproyecto}`),
+          withApiBase(`http://51.81.85.35:8002/api/listPuntosProyecto/${idproyecto}`),
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -152,14 +152,14 @@ export default function IconoModal({ onClose, idproyecto }) {
 
         const iconosCatalogoPromise =
           iconosDisponiblesRef.current.length === 0
-            ? authFetch(withApiBase("http://127.0.0.1:8000/api/listIconos/"))
+            ? authFetch(withApiBase("http://51.81.85.35:8002/api/listIconos/"))
             : null;
 
         const [resLotes, resIconosProyecto, resIconosCatalogo] =
           await Promise.all([
             authFetch(
               withApiBase(
-                `http://127.0.0.1:8000/api/listPuntosLoteProyecto/${idproyecto}/`,
+                `http://51.81.85.35:8002/api/listPuntosLoteProyecto/${idproyecto}/`,
               ),
               {
                 headers: {
@@ -169,7 +169,7 @@ export default function IconoModal({ onClose, idproyecto }) {
             ),
             authFetch(
               withApiBase(
-                `http://127.0.0.1:8000/api/list_iconos_proyecto/${idproyecto}?t=${iconQueryBustRef.current}`,
+                `http://51.81.85.35:8002/api/list_iconos_proyecto/${idproyecto}?t=${iconQueryBustRef.current}`,
               ),
               {
                 headers: {
@@ -230,7 +230,7 @@ export default function IconoModal({ onClose, idproyecto }) {
                 map: map.mapInstance,
                 icon: {
                   url: withApiBase(
-                    `http://127.0.0.1:8000${iconoDetalle.imagen}`,
+                    `http://51.81.85.35:8002${iconoDetalle.imagen}`,
                   ),
                   scaledSize: new window.google.maps.Size(40, 40),
                 },
@@ -294,7 +294,7 @@ export default function IconoModal({ onClose, idproyecto }) {
       position: latLng,
       map: map.mapInstance,
       icon: {
-        url: withApiBase(`http://127.0.0.1:8000${draggedIcono.imagen}`),
+        url: withApiBase(`http://51.81.85.35:8002${draggedIcono.imagen}`),
         scaledSize: new window.google.maps.Size(40, 40),
       },
       draggable: true,
@@ -366,7 +366,7 @@ export default function IconoModal({ onClose, idproyecto }) {
 
   useEffect(() => {
     const fetchIconos = async () => {
-      const res = await authFetch(withApiBase("http://127.0.0.1:8000/api/listIconos/"));
+      const res = await authFetch(withApiBase("http://51.81.85.35:8002/api/listIconos/"));
       const data = await res.json();
       iconosDisponiblesRef.current = data;
       setIconosDisponibles(data);
@@ -397,7 +397,7 @@ export default function IconoModal({ onClose, idproyecto }) {
 
     if (payload.length) {
       await authFetch(
-        withApiBase("http://127.0.0.1:8000/api/add_iconos_proyecto/"),
+        withApiBase("http://51.81.85.35:8002/api/add_iconos_proyecto/"),
         {
           method: "POST",
           headers: {
@@ -420,7 +420,7 @@ export default function IconoModal({ onClose, idproyecto }) {
     try {
       await authFetch(
         withApiBase(
-          `http://127.0.0.1:8000/api/delete_icono_proyecto/${idiconoproyecto}/`,
+          `http://51.81.85.35:8002/api/delete_icono_proyecto/${idiconoproyecto}/`,
         ),
         {
           method: "DELETE",
@@ -452,7 +452,7 @@ export default function IconoModal({ onClose, idproyecto }) {
           {iconosDisponibles.map((ico) => (
             <img
               key={ico.idicono}
-              src={withApiBase(`http://127.0.0.1:8000${ico.imagen}`)}
+              src={withApiBase(`http://51.81.85.35:8002${ico.imagen}`)}
               alt={ico.nombre}
               title={ico.nombre}
               draggable
@@ -482,7 +482,7 @@ export default function IconoModal({ onClose, idproyecto }) {
                 <div key={idx} className={style.iconRegisteredItemWrap}>
                   <img
                     src={withApiBase(
-                      `http://127.0.0.1:8000${iconoDetalle.imagen}`,
+                      `http://51.81.85.35:8002${iconoDetalle.imagen}`,
                     )}
                     alt={iconoDetalle.nombre}
                     title={iconoDetalle.nombre}

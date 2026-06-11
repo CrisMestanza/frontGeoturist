@@ -51,7 +51,7 @@ const loadViewerRuntime = async () => {
   return viewerRuntimePromise;
 };
 
-const API_BASE = "http://127.0.0.1:8000";
+const API_BASE = "http://51.81.85.35:8002";
 const MARKER_SIZE = { width: 118, height: 78 };
 const OVERLAY_VIEWBOX = { width: 1200, height: 780 };
 const OVERLAY_HEADER_OFFSET = 42;

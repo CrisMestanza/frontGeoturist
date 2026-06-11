@@ -78,10 +78,10 @@ export default function EditLote({ onClose, idproyecto, lote, visible }) {
       try {
         const [resPuntos, resImagenes] = await Promise.all([
           authFetch(
-            withApiBase(`http://127.0.0.1:8000/api/listPuntos/${lote.idlote}`),
+            withApiBase(`http://51.81.85.35:8002/api/listPuntos/${lote.idlote}`),
           ),
           authFetch(
-            withApiBase(`http://127.0.0.1:8000/api/list_imagen/${lote.idlote}`),
+            withApiBase(`http://51.81.85.35:8002/api/list_imagen/${lote.idlote}`),
           ),
         ]);
         const puntos = await resPuntos.json();
@@ -141,12 +141,12 @@ export default function EditLote({ onClose, idproyecto, lote, visible }) {
       const [resProyecto, resLotes] = await Promise.all([
         authFetch(
           withApiBase(
-            `http://127.0.0.1:8000/api/listPuntosProyecto/${idproyecto}`,
+            `http://51.81.85.35:8002/api/listPuntosProyecto/${idproyecto}`,
           ),
         ),
         authFetch(
           withApiBase(
-            `http://127.0.0.1:8000/api/listPuntosLoteProyecto/${idproyecto}/`,
+            `http://51.81.85.35:8002/api/listPuntosLoteProyecto/${idproyecto}/`,
           ),
           { headers: { Authorization: `Bearer ${token}` } },
         ),
@@ -277,7 +277,7 @@ export default function EditLote({ onClose, idproyecto, lote, visible }) {
     const fetchTipos = async () => {
       try {
         const res = await authFetch(
-          withApiBase("http://127.0.0.1:8000/api/listTipoInmobiliaria/")
+          withApiBase("http://51.81.85.35:8002/api/listTipoInmobiliaria/")
         );
         const data = await res.json();
         setTipos(data || []);
@@ -363,7 +363,7 @@ export default function EditLote({ onClose, idproyecto, lote, visible }) {
       });
 
       const res = await authFetch(
-        withApiBase(`http://127.0.0.1:8000/api/updateLote/${lote.idlote}/`),
+        withApiBase(`http://51.81.85.35:8002/api/updateLote/${lote.idlote}/`),
         {
           method: "PUT",
           body: formData,
@@ -670,7 +670,7 @@ export default function EditLote({ onClose, idproyecto, lote, visible }) {
                     <div className={style.imagePreviewGrid}>
                       {visibleExistingImages.map((img, i) => {
                         const src = withApiBase(
-                          `http://127.0.0.1:8000${img.imagen || ""}`,
+                          `http://51.81.85.35:8002${img.imagen || ""}`,
                         );
                         const key = img.idimagenes || img.idimagen || img.id || i;
                         return (

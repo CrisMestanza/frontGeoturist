@@ -15,7 +15,7 @@ export default function Principal() {
     const fetchInmobiliarias = async () => {
       try {
         const res = await fetch(
-          withApiBase("http://127.0.0.1:8000/api/listInmobiliaria/"),
+          withApiBase("http://51.81.85.35:8002/api/listInmobiliaria/"),
         );
         const data = await res.json();
         setInmobiliarias(data);
@@ -38,7 +38,7 @@ export default function Principal() {
     if (confirm) {
       try {
         const res = await authFetch(
-          withApiBase(`http://127.0.0.1:8000/api/deleteInmobiliaria/${idinmobiliaria}/`),
+          withApiBase(`http://51.81.85.35:8002/api/deleteInmobiliaria/${idinmobiliaria}/`),
           {
             method: "PUT",
             headers: {

@@ -45,7 +45,7 @@ const LotesModal = ({ idproyecto, proyectoNombre, onClose }) => {
       }
       const resLotes = await authFetch(
         withApiBase(
-          `http://127.0.0.1:8000/api/getLoteProyecto/${idproyecto}`,
+          `http://51.81.85.35:8002/api/getLoteProyecto/${idproyecto}`,
         ),
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -99,7 +99,7 @@ const LotesModal = ({ idproyecto, proyectoNombre, onClose }) => {
     try {
       const res = await authFetch(
         withApiBase(
-          `http://127.0.0.1:8000/api/updateLoteVendido/${idlote}/`,
+          `http://51.81.85.35:8002/api/updateLoteVendido/${idlote}/`,
         ),
         {
           method: "PATCH",
@@ -124,7 +124,7 @@ const LotesModal = ({ idproyecto, proyectoNombre, onClose }) => {
     if (!window.confirm("¿Seguro que deseas eliminar este lote?")) return;
     try {
       const res = await authFetch(
-        withApiBase(`http://127.0.0.1:8000/api/deleteLote/${idlote}/`),
+        withApiBase(`http://51.81.85.35:8002/api/deleteLote/${idlote}/`),
         {
           method: "DELETE",
           headers: { Authorization: `Bearer ${token}` },

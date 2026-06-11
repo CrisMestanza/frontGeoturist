@@ -290,13 +290,13 @@ export default function LoteModal({ onClose, idproyecto }) {
       const [resLotes, resPuntosProyecto] = await Promise.all([
         authFetch(
           withApiBase(
-            `http://127.0.0.1:8000/api/listPuntosLoteProyecto/${idproyecto}/`,
+            `http://51.81.85.35:8002/api/listPuntosLoteProyecto/${idproyecto}/`,
           ),
           { headers: { Authorization: `Bearer ${token}` } },
         ),
         authFetch(
           withApiBase(
-            `http://127.0.0.1:8000/api/listPuntosProyecto/${idproyecto}`,
+            `http://51.81.85.35:8002/api/listPuntosProyecto/${idproyecto}`,
           ),
           { headers: { Authorization: `Bearer ${token}` } },
         ),

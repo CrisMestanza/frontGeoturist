@@ -1,6 +1,6 @@
 import { withApiBase } from "./api.js";
 
-const REFRESH_URL = withApiBase("http://127.0.0.1:8000/api/token/refresh/");
+const REFRESH_URL = withApiBase("http://51.81.85.35:8002/api/token/refresh/");
 const ACCESS_REFRESH_WINDOW_SECONDS = 90;
 let refreshPromise = null;
 

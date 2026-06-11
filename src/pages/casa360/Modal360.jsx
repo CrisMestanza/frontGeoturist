@@ -57,7 +57,7 @@ const DEFAULT_LAYOUT_CONFIG = {
   showProjectOutline: true,
 };
 
-const buildApiUrl = (path) => withApiBase(`http://127.0.0.1:8000${path}`);
+const buildApiUrl = (path) => withApiBase(`http://51.81.85.35:8002${path}`);
 
 const normalizeImageUrl = (url) => {
   if (!url) return "";
@@ -805,12 +805,12 @@ const Modal360 = ({ idproyecto, onClose }) => {
 
     try {
       const projectRequest = authFetch(
-        withApiBase(`http://127.0.0.1:8000/api/listPuntosProyecto/${idproyecto}`),
+        withApiBase(`http://51.81.85.35:8002/api/listPuntosProyecto/${idproyecto}`),
         { headers },
       );
 
       const lotesRequest = authFetch(
-        withApiBase(`http://127.0.0.1:8000/api/listPuntosLoteProyecto/${idproyecto}/`),
+        withApiBase(`http://51.81.85.35:8002/api/listPuntosLoteProyecto/${idproyecto}/`),
         { headers },
       );
 
@@ -834,7 +834,7 @@ const Modal360 = ({ idproyecto, onClose }) => {
         lotesData = await lotesResponse.json().catch(() => []);
       } else {
         const fallback = await authFetch(
-          withApiBase(`http://127.0.0.1:8000/api/getLoteProyecto/${idproyecto}`),
+          withApiBase(`http://51.81.85.35:8002/api/getLoteProyecto/${idproyecto}`),
           { headers },
         );
 

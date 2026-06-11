@@ -58,7 +58,7 @@ const Summary = ({ onBack, formData }) => {
 
     try {
       const response = await fetch(
-        withApiBase("http://127.0.0.1:8000/api/register_inmobiliaria_usuario/"),
+        withApiBase("http://51.81.85.35:8002/api/register_inmobiliaria_usuario/"),
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

@@ -23,7 +23,7 @@ const PrivateRoute = ({ children }) => {
       }
 
       try {
-        const res = await authFetch(withApiBase("http://127.0.0.1:8000/api/check_auth/"), {
+        const res = await authFetch(withApiBase("http://51.81.85.35:8002/api/check_auth/"), {
           method: "GET",
           headers: {
             "Content-Type": "application/json",

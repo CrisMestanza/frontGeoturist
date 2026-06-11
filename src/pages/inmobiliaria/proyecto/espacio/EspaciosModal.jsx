@@ -202,13 +202,13 @@ export default function EspaciosModal({ onClose, idproyecto }) {
       const [detailRes, tiposRes, spacesRes] = await Promise.all([
         authFetch(
           withApiBase(
-            `http://127.0.0.1:8000/api/mapa/proyecto_detalle/${idproyecto}/`,
+            `http://51.81.85.35:8002/api/mapa/proyecto_detalle/${idproyecto}/`,
           ),
         ),
-        authFetch(withApiBase("http://127.0.0.1:8000/api/list_tipos_espacio/")),
+        authFetch(withApiBase("http://51.81.85.35:8002/api/list_tipos_espacio/")),
         authFetch(
           withApiBase(
-            `http://127.0.0.1:8000/api/list_espacios_proyecto/${idproyecto}/?include_hidden=1`,
+            `http://51.81.85.35:8002/api/list_espacios_proyecto/${idproyecto}/?include_hidden=1`,
           ),
         ),
       ]);
@@ -312,9 +312,9 @@ export default function EspaciosModal({ onClose, idproyecto }) {
 
       const url = form.idespacio
         ? withApiBase(
-            `http://127.0.0.1:8000/api/update_espacio/${form.idespacio}/`,
+            `http://51.81.85.35:8002/api/update_espacio/${form.idespacio}/`,
           )
-        : withApiBase("http://127.0.0.1:8000/api/register_espacio/");
+        : withApiBase("http://51.81.85.35:8002/api/register_espacio/");
 
       const res = await authFetch(url, {
         method: form.idespacio ? "PUT" : "POST",
@@ -348,7 +348,7 @@ export default function EspaciosModal({ onClose, idproyecto }) {
     if (!ok) return;
     try {
       const res = await authFetch(
-        withApiBase(`http://127.0.0.1:8000/api/delete_espacio/${form.idespacio}/`),
+        withApiBase(`http://51.81.85.35:8002/api/delete_espacio/${form.idespacio}/`),
         {
           method: "DELETE",
           headers: { Authorization: `Bearer ${token}` },

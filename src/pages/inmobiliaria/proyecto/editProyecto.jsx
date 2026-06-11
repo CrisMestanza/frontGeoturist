@@ -122,12 +122,12 @@ export default function EditProyectoModal({
         const [puntosRes, imagesRes] = await Promise.all([
           authFetch(
             withApiBase(
-              `http://127.0.0.1:8000/api/listPuntosProyecto/${proyectoId}`,
+              `http://51.81.85.35:8002/api/listPuntosProyecto/${proyectoId}`,
             ),
           ),
           authFetch(
             withApiBase(
-              `http://127.0.0.1:8000/api/list_imagen_proyecto/${proyectoId}`,
+              `http://51.81.85.35:8002/api/list_imagen_proyecto/${proyectoId}`,
             ),
           ),
         ]);
@@ -222,7 +222,7 @@ export default function EditProyectoModal({
   }, [isLoaded]);
 
   useEffect(() => {
-    fetch(withApiBase("http://127.0.0.1:8000/api/list_categorias/"))
+    fetch(withApiBase("http://51.81.85.35:8002/api/list_categorias/"))
       .then((res) => res.json())
       .then((data) => setCategorias(data))
       .catch((err) => console.error("Error categorías:", err));
@@ -361,7 +361,7 @@ export default function EditProyectoModal({
       });
 
       const res = await authFetch(
-        withApiBase(`http://127.0.0.1:8000/api/updateProyecto/${form.idproyecto}/`),
+        withApiBase(`http://51.81.85.35:8002/api/updateProyecto/${form.idproyecto}/`),
         {
           method: "PUT",
           headers: { Authorization: `Bearer ${token}` },
@@ -550,7 +550,7 @@ export default function EditProyectoModal({
                   <div className={styles.existingImagesGrid}>
                     {visibleExistingImages.map((img, i) => {
                       const src = withApiBase(
-                        `http://127.0.0.1:8000${img.imagenproyecto || img.imagen || ""}`,
+                        `http://51.81.85.35:8002${img.imagenproyecto || img.imagen || ""}`,
                       );
                       const key = img.idimagenesp || img.idimagenproyecto || img.idimagen || img.id || i;
                       return (

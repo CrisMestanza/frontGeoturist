@@ -1,4 +1,4 @@
-const DEV_DEFAULT = "http://127.0.0.1:8000";
+const DEV_DEFAULT = "http://51.81.85.35:8002";
 
 // En Docker se construye con VITE_API_BASE_URL="" para que Nginx
 // proxy /api/ al backend. En desarrollo local usa el valor por defecto.

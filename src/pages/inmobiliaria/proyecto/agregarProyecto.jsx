@@ -96,7 +96,7 @@ export default function ProyectoModal({ onClose, idinmobiliaria }) {
 
   // Cargar Categorías de centros turísticos
   useEffect(() => {
-    fetch(withApiBase("http://127.0.0.1:8000/api/list_categorias/"))
+    fetch(withApiBase("http://51.81.85.35:8002/api/list_categorias/"))
       .then((res) => res.json())
       .then((data) => setCategorias(data))
       .catch((err) => console.error("Error categorías:", err));
@@ -260,7 +260,7 @@ export default function ProyectoModal({ onClose, idinmobiliaria }) {
 
     try {
       const res = await authFetch(
-        withApiBase("http://127.0.0.1:8000/api/registerProyecto/"),
+        withApiBase("http://51.81.85.35:8002/api/registerProyecto/"),
         {
           method: "POST",
           body: formData,

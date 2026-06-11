@@ -14,7 +14,7 @@ import { withApiBase } from "../../config/api";
 export const getOgImageUrl = (type, id, fallbackImage = null) => {
   if (!type || !id) return "/geohabita.png";
 
-  const base = withApiBase("http://127.0.0.1:8000");
+  const base = withApiBase("http://51.81.85.35:8002");
   const ogUrl = `${base}/api/og-image/${type}/${id}/`;
 
   // Si hay una imagen de fallback, la pasamos como query param
@@ -29,7 +29,7 @@ export const getOgImageUrl = (type, id, fallbackImage = null) => {
 
 export const getSharePageUrl = (type, id) => {
   if (!type || !id) return "https://www.geohabita.com";
-  const base = withApiBase("http://127.0.0.1:8000");
+  const base = withApiBase("http://51.81.85.35:8002");
   return `${base}/share/${type}/${id}/`;
 };
 

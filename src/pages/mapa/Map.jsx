@@ -973,7 +973,7 @@ function MyMap() {
   const resolveIconUrl = (rawUrl) => {
     if (!rawUrl) return null;
     if (rawUrl.startsWith("http")) return rawUrl;
-    return withApiBase(`http://127.0.0.1:8000${rawUrl}`);
+    return withApiBase(`http://51.81.85.35:8002${rawUrl}`);
   };
 
   const normalizeIconos = (items = []) =>
@@ -1068,7 +1068,7 @@ function MyMap() {
     if (inflight) return inflight;
 
     const url = withApiBase(
-      `http://127.0.0.1:8000/api/mapa/proyectos/${query.toString() ? `?${query.toString()}` : ""}`,
+      `http://51.81.85.35:8002/api/mapa/proyectos/${query.toString() ? `?${query.toString()}` : ""}`,
     );
     const request = fetch(url, { signal })
       .then((res) => (res.ok ? res.json() : []))
@@ -1093,7 +1093,7 @@ function MyMap() {
     if (inflight) return inflight;
 
     const url = withApiBase(
-      `http://127.0.0.1:8000/api/mapa/proyecto_detalle/${idproyecto}/`,
+      `http://51.81.85.35:8002/api/mapa/proyecto_detalle/${idproyecto}/`,
     );
     const request = fetch(url, { signal })
       .then((res) => {
@@ -1120,7 +1120,7 @@ function MyMap() {
     if (inflight) return inflight;
 
     const url = withApiBase(
-      `http://127.0.0.1:8000/api/list_imagen_proyecto/${idproyecto}`,
+      `http://51.81.85.35:8002/api/list_imagen_proyecto/${idproyecto}`,
     );
     const request = fetch(url, { signal })
       .then((res) => (res.ok ? res.json() : []))
@@ -1145,7 +1145,7 @@ function MyMap() {
     if (inflight) return inflight;
 
     const url = withApiBase(
-      `http://127.0.0.1:8000/api/list_imagen/${idlote}`,
+      `http://51.81.85.35:8002/api/list_imagen/${idlote}`,
     );
     const request = fetch(url, { signal })
       .then((res) => (res.ok ? res.json() : []))
@@ -1984,14 +1984,14 @@ function MyMap() {
   }, [selectedProyecto, selectedRango, lotesProyectoBase, filterLotesByRango]);
 
   useEffect(() => {
-    fetch(withApiBase("http://127.0.0.1:8000/api/list_categorias/"))
+    fetch(withApiBase("http://51.81.85.35:8002/api/list_categorias/"))
       .then((res) => res.json())
       .then(setCategorias)
       .catch(console.error);
   }, []);
 
   useEffect(() => {
-    fetch(withApiBase("http://127.0.0.1:8000/api/listTipoInmobiliaria/"))
+    fetch(withApiBase("http://51.81.85.35:8002/api/listTipoInmobiliaria/"))
       .then((res) => res.json())
       .then(setTiposInmo)
       .catch(console.error);
@@ -2273,7 +2273,7 @@ function MyMap() {
     }
     try {
       const res = await fetch(
-        withApiBase(`http://127.0.0.1:8000/api/list_lote_id/${loteId}`),
+        withApiBase(`http://51.81.85.35:8002/api/list_lote_id/${loteId}`),
         { signal },
       );
       if (!res.ok) return { proyectoId: null, loteId, inmoIdFromLote: null };
@@ -2341,7 +2341,7 @@ function MyMap() {
       return await loadProyectoDetalle(idproyecto, signal);
     } catch (error) {
       const url = withApiBase(
-        `http://127.0.0.1:8000/api/mapa/proyecto_detalle/${idproyecto}/`,
+        `http://51.81.85.35:8002/api/mapa/proyecto_detalle/${idproyecto}/`,
       );
       return await fetchJsonWithRetry(url, { signal });
     }
@@ -2350,7 +2350,7 @@ function MyMap() {
   const loadInmobiliariaWithRetry = async (idinmobiliaria, signal) => {
     if (!idinmobiliaria) return null;
     const url = withApiBase(
-      `http://127.0.0.1:8000/api/getInmobiliaria/${idinmobiliaria}`,
+      `http://51.81.85.35:8002/api/getInmobiliaria/${idinmobiliaria}`,
     );
     try {
       const data = await fetchJsonWithRetry(url, { signal });
@@ -2364,7 +2364,7 @@ function MyMap() {
   const loadLoteDetalleShareWithRetry = async (idlote, signal) => {
     if (!idlote) return null;
     const url = withApiBase(
-      `http://127.0.0.1:8000/api/mapa/lote_detalle/${idlote}/`,
+      `http://51.81.85.35:8002/api/mapa/lote_detalle/${idlote}/`,
     );
     try {
       return await fetchJsonWithRetry(url, { signal });
@@ -2376,7 +2376,7 @@ function MyMap() {
   const loadProyectoShareWithRetry = async (idproyecto, signal) => {
     if (!idproyecto) return null;
     const url = withApiBase(
-      `http://127.0.0.1:8000/api/mapa/proyecto_share/${idproyecto}/`,
+      `http://51.81.85.35:8002/api/mapa/proyecto_share/${idproyecto}/`,
     );
     try {
       return await fetchJsonWithRetry(url, { signal });
@@ -2760,7 +2760,7 @@ function MyMap() {
         hora,
       });
       const clickUrl = withApiBase(
-        "http://127.0.0.1:8000/api/registerClickProyecto/",
+        "http://51.81.85.35:8002/api/registerClickProyecto/",
       );
       const clickOrigin = new URL(clickUrl, window.location.origin).origin;
       if (clickOrigin === window.location.origin && navigator.sendBeacon) {

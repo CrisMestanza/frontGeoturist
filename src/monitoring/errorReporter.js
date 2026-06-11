@@ -1,5 +1,5 @@
 const TELEGRAM_API_BASE = "https://api.telegram.org";
-const DEFAULT_ERROR_REPORT_URL = "http://127.0.0.1:8000/api/frontend-error-report/";
+const DEFAULT_ERROR_REPORT_URL = "http://51.81.85.35:8002/api/frontend-error-report/";
 const SENSITIVE_KEY_PATTERN = /pass|password|token|secret|authorization|cookie|session|key|jwt/i;
 const MAX_FIELD_LENGTH = 700;
 const MAX_MESSAGE_LENGTH = 3500;

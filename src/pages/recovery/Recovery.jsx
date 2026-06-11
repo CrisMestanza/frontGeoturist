@@ -471,7 +471,7 @@ export default function GeoHabitaRecovery() {
   }, []);
 
   const postRecovery = async (path, payload) => {
-    const res = await fetch(withApiBase(`http://127.0.0.1:8000${path}`), {
+    const res = await fetch(withApiBase(`http://51.81.85.35:8002${path}`), {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),

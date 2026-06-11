@@ -83,7 +83,7 @@ const resolveProjectImageUrl = (rawPath) => {
   if (!rawPath || typeof rawPath !== "string") return null;
   if (rawPath.startsWith("http")) return rawPath;
   const normalizedPath = rawPath.startsWith("/") ? rawPath : `/${rawPath}`;
-  return withApiBase(`http://127.0.0.1:8000${normalizedPath}`);
+  return withApiBase(`http://51.81.85.35:8002${normalizedPath}`);
 };
 
 const fetchProjectImages = async (projectId) => {
@@ -91,7 +91,7 @@ const fetchProjectImages = async (projectId) => {
   try {
     const res = await fetch(
       withApiBase(
-        `http://127.0.0.1:8000/api/list_imagen_proyecto/${projectId}`,
+        `http://51.81.85.35:8002/api/list_imagen_proyecto/${projectId}`,
       ),
     );
     if (!res.ok) return [];
@@ -461,14 +461,14 @@ const PanelInmo = ({ setAppLoading }) => {
       const [resOverview, resProjects] = await Promise.all([
         authFetch(
           withApiBase(
-            `http://127.0.0.1:8000/api/dashboard_overview_inmobiliaria/${idInmo}/`,
+            `http://51.81.85.35:8002/api/dashboard_overview_inmobiliaria/${idInmo}/`,
           ),
           {
             headers: { Authorization: `Bearer ${token}` },
           },
         ),
         authFetch(
-          withApiBase(`http://127.0.0.1:8000/api/getProyectoInmo/${idInmo}`),
+          withApiBase(`http://51.81.85.35:8002/api/getProyectoInmo/${idInmo}`),
           {
             headers: { Authorization: `Bearer ${token}` },
           },
@@ -557,7 +557,7 @@ const PanelInmo = ({ setAppLoading }) => {
 
         const res = await authFetch(
           withApiBase(
-            `http://127.0.0.1:8000/api/dashboard_lotes_inmobiliaria/${idInmo}/?${query.toString()}`,
+            `http://51.81.85.35:8002/api/dashboard_lotes_inmobiliaria/${idInmo}/?${query.toString()}`,
           ),
           {
             headers: { Authorization: `Bearer ${token}` },
@@ -627,7 +627,7 @@ const PanelInmo = ({ setAppLoading }) => {
   const handleLogout = () => {
     const doLogout = async () => {
       try {
-        await authFetch(withApiBase("http://127.0.0.1:8000/api/logout/"), {
+        await authFetch(withApiBase("http://51.81.85.35:8002/api/logout/"), {
           method: "POST",
           headers: token ? { Authorization: `Bearer ${token}` } : {},
         });
@@ -645,7 +645,7 @@ const PanelInmo = ({ setAppLoading }) => {
     try {
       const res = await authFetch(
         withApiBase(
-          `http://127.0.0.1:8000/api/deleteProyecto/${idproyecto}/`,
+          `http://51.81.85.35:8002/api/deleteProyecto/${idproyecto}/`,
         ),
         {
           method: "DELETE",
@@ -685,7 +685,7 @@ const PanelInmo = ({ setAppLoading }) => {
 
     try {
       const res = await authFetch(
-        withApiBase(`http://127.0.0.1:8000/api/updateProyecto/${id}/`),
+        withApiBase(`http://51.81.85.35:8002/api/updateProyecto/${id}/`),
         {
           method: "PUT",
           headers: {
@@ -768,7 +768,7 @@ const PanelInmo = ({ setAppLoading }) => {
     try {
       const res = await authFetch(
         withApiBase(
-          `http://127.0.0.1:8000/api/updateLoteVendido/${idlote}/`,
+          `http://51.81.85.35:8002/api/updateLoteVendido/${idlote}/`,
         ),
         {
           method: "PATCH",

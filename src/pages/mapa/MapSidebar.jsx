@@ -360,7 +360,7 @@ const LoteSidebarOverlay = ({
   const registrarClickContacto = async (redSocial) => {
     try {
       await fetch(
-        withApiBase("http://127.0.0.1:8000/api/registerClickContactos/"),
+        withApiBase("http://51.81.85.35:8002/api/registerClickContactos/"),
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -386,7 +386,7 @@ const LoteSidebarOverlay = ({
     const proyectoId = proyecto?.idproyecto;
     const loteId = lote?.idlote;
     if (!inmoId || !proyectoId || !loteId) return "";
-    return withApiBase(`http://127.0.0.1:8000/share/lote/${loteId}/`);
+    return withApiBase(`http://51.81.85.35:8002/share/lote/${loteId}/`);
   }, [inmo, proyecto, lote]);
 
   const handleShare = async () => {
@@ -638,7 +638,7 @@ const LoteSidebarOverlay = ({
     try {
       const response = await fetch(
         withApiBase(
-          `http://127.0.0.1:8000/api/get_imagen_360_casa/${projectId}/`,
+          `http://51.81.85.35:8002/api/get_imagen_360_casa/${projectId}/`,
         ),
       );
       const data = await response.json().catch(() => []);
@@ -683,7 +683,7 @@ const LoteSidebarOverlay = ({
 
     validImages.forEach((img) => {
       const image = new Image();
-      image.src = withApiBase(`http://127.0.0.1:8000${img.imagen}`);
+      image.src = withApiBase(`http://51.81.85.35:8002${img.imagen}`);
     });
   }, [validImages]);
   useEffect(() => {
@@ -873,7 +873,7 @@ const LoteSidebarOverlay = ({
                     <div key={index} className={styles.galleryItem}>
                       <img
                         src={withApiBase(
-                          `http://127.0.0.1:8000${img.imagen}`,
+                          `http://51.81.85.35:8002${img.imagen}`,
                         )}
                         alt="Lote"
                         className={`${styles.mobileGalleryImage} ${activeIndex === index ? styles.activeImage : ""
@@ -888,7 +888,7 @@ const LoteSidebarOverlay = ({
                   <img
                     key={currentImg}
                     src={withApiBase(
-                      `http://127.0.0.1:8000${validImages[currentImg].imagen}`,
+                      `http://51.81.85.35:8002${validImages[currentImg].imagen}`,
                     )}
                     alt="Lote"
                     className={styles.mainImage}
@@ -900,7 +900,7 @@ const LoteSidebarOverlay = ({
                     <img
                       key={index}
                       src={withApiBase(
-                        `http://127.0.0.1:8000${img.imagen}`,
+                        `http://51.81.85.35:8002${img.imagen}`,
                       )}
                       loading="lazy"
                       className={styles.mobileGalleryImage}
@@ -1713,7 +1713,7 @@ const LoteSidebarOverlay = ({
             <img
               ref={fullscreenPanZoom.imageRef}
               src={withApiBase(
-                `http://127.0.0.1:8000${validImages[fullscreenImgIndex].imagen}`,
+                `http://51.81.85.35:8002${validImages[fullscreenImgIndex].imagen}`,
               )}
               className={styles.fullscreenImg}
               alt="Zoom"

@@ -37,7 +37,7 @@ export default function FinancingModal({ onClose, proyecto }) {
     try {
       const res = await authFetch(
         withApiBase(
-          `http://127.0.0.1:8000/api/updateProyecto/${proyecto.idproyecto}/`,
+          `http://51.81.85.35:8002/api/updateProyecto/${proyecto.idproyecto}/`,
         ),
         {
           method: "PUT",

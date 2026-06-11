@@ -17,7 +17,7 @@ export default function ProyectosList() {
     const fetchProyectos = async () => {
       try {
         const res = await authFetch(
-          withApiBase(`http://127.0.0.1:8000/api/getProyectoInmo/${idinmobiliaria}`),
+          withApiBase(`http://51.81.85.35:8002/api/getProyectoInmo/${idinmobiliaria}`),
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -162,7 +162,7 @@ export default function ProyectosList() {
                         )
                       ) {
                         await authFetch(
-                          withApiBase(`http://127.0.0.1:8000/api/deleteProyecto/${proyecto.idproyecto}/`),
+                          withApiBase(`http://51.81.85.35:8002/api/deleteProyecto/${proyecto.idproyecto}/`),
                           {
                             method: "DELETE",
                             headers: {

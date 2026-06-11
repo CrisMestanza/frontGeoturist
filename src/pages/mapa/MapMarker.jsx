@@ -10,7 +10,7 @@ export default function ProyectoMarker({ onClick, proyecto }) {
     async function fetchProyectos() {
       try {
         const res = await axios.get(
-          withApiBase("http://127.0.0.1:8000/api/listProyectos"),
+          withApiBase("http://51.81.85.35:8002/api/listProyectos"),
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("access")}`,
